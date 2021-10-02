@@ -16,6 +16,8 @@ class GameViewController: UIViewController {
     @IBOutlet var winnerLabel: UILabel!
     @IBOutlet var restartButton: UIButton!
     
+    var mode: gameMode?
+    
     private let gameBoard = Gameboard()
     private var counter = 0
     private lazy var referee = Referee(gameboard: gameBoard)

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="T3I-8M-WGW">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -8,10 +8,69 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Menu Screen View Controller-->
+        <scene sceneID="N71-Ok-a0b">
+            <objects>
+                <viewController id="T3I-8M-WGW" customClass="MenuScreenViewController" customModule="XO_game" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PBX-Tp-syb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-=[ XO GAME ]=-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="977-BO-jDi">
+                                <rect key="frame" x="25" y="25" width="325" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQk-eA-Ihe">
+                                <rect key="frame" x="50" y="71" width="275" height="31"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="2 Player Mode"/>
+                                <connections>
+                                    <action selector="twoPlayerButtonTap:" destination="T3I-8M-WGW" eventType="touchUpInside" id="7O5-5y-Oga"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AlE-1E-VUB">
+                                <rect key="frame" x="50" y="112" width="275" height="31"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Play Against Computer"/>
+                                <connections>
+                                    <action selector="computerButtonTap:" destination="T3I-8M-WGW" eventType="touchUpInside" id="BUo-0e-DsX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="oQR-gQ-pS8"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oQR-gQ-pS8" firstAttribute="trailing" secondItem="AlE-1E-VUB" secondAttribute="trailing" constant="50" id="95y-7J-Ln8"/>
+                            <constraint firstItem="AlE-1E-VUB" firstAttribute="leading" secondItem="oQR-gQ-pS8" secondAttribute="leading" constant="50" id="C2s-ML-5Ue"/>
+                            <constraint firstItem="oQR-gQ-pS8" firstAttribute="trailing" secondItem="MQk-eA-Ihe" secondAttribute="trailing" constant="50" id="NIg-KJ-wgw"/>
+                            <constraint firstItem="MQk-eA-Ihe" firstAttribute="leading" secondItem="oQR-gQ-pS8" secondAttribute="leading" constant="50" id="QkE-kI-2gy"/>
+                            <constraint firstItem="977-BO-jDi" firstAttribute="leading" secondItem="oQR-gQ-pS8" secondAttribute="leading" constant="25" id="R3H-Kh-zzf"/>
+                            <constraint firstItem="AlE-1E-VUB" firstAttribute="top" secondItem="MQk-eA-Ihe" secondAttribute="bottom" constant="10" id="RRY-rf-aLG"/>
+                            <constraint firstItem="MQk-eA-Ihe" firstAttribute="top" secondItem="977-BO-jDi" secondAttribute="bottom" constant="25" id="cyF-c2-E4Y"/>
+                            <constraint firstItem="977-BO-jDi" firstAttribute="top" secondItem="oQR-gQ-pS8" secondAttribute="top" constant="25" id="di4-61-iCC"/>
+                            <constraint firstItem="oQR-gQ-pS8" firstAttribute="trailing" secondItem="977-BO-jDi" secondAttribute="trailing" constant="25" id="tuz-qq-kYY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="computerButton" destination="AlE-1E-VUB" id="dzW-cZ-ISd"/>
+                        <outlet property="twoPlayerButton" destination="MQk-eA-Ihe" id="XHM-ZK-YiA"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="toGame" id="4et-Nt-cFa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="85M-IT-qWf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-655" y="134"/>
+        </scene>
         <!--Game View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="GameViewController" customModule="XO_game" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="GameViewController" customModule="XO_game" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -79,6 +138,7 @@
                             <constraint firstItem="LSW-na-Of7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lyE-7i-9c4" secondAttribute="trailing" constant="8" symbolic="YES" id="zzk-Xb-alW"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="m7E-gc-MmE"/>
                     <connections>
                         <outlet property="firstPlayerTurnLabel" destination="lyE-7i-9c4" id="1eC-po-kqk"/>
                         <outlet property="gameboardView" destination="FpC-lq-59T" id="oJQ-bB-6DM"/>
