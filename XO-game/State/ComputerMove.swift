@@ -53,10 +53,11 @@ class ComputerMove: GameState {
     
     private func calculatePosition() -> GameboardPosition? {
         var positions: [GameboardPosition] = []
+
         for col in 0...GameboardSize.columns - 1 {
             for row in 0...GameboardSize.rows - 1 {
                 let position = GameboardPosition(column: col, row: row)
-                if !gameBoard!.contains(player: .first, at: position) && !gameBoard!.contains(player: .computer, at: position) {
+                if gameBoardView!.canPlaceMarkView(at: position) {
                     positions.append(position)
                 }
             }

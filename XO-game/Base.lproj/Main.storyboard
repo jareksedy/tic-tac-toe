@@ -11,7 +11,7 @@
         <!--Menu Screen View Controller-->
         <scene sceneID="N71-Ok-a0b">
             <objects>
-                <viewController id="T3I-8M-WGW" customClass="MenuScreenViewController" customModule="XO_game" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="T3I-8M-WGW" customClass="MenuScreenViewController" customModule="XO_game" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PBX-Tp-syb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -59,6 +59,7 @@
                             <constraint firstItem="oQR-gQ-pS8" firstAttribute="trailing" secondItem="977-BO-jDi" secondAttribute="trailing" constant="25" id="tuz-qq-kYY"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="qmC-g1-6SM"/>
                     <connections>
                         <outlet property="computerButton" destination="MxF-ND-y6h" id="1z7-AR-1Vc"/>
                         <outlet property="twoPlayerButton" destination="W6i-7j-it5" id="x1B-zQ-qKg"/>
@@ -121,20 +122,32 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmH-Ce-x4m">
+                                <rect key="frame" x="249.5" y="621" width="100.5" height="26"/>
+                                <inset key="contentEdgeInsets" minX="12" minY="4" maxX="12" maxY="4"/>
+                                <state key="normal" title="Return"/>
+                                <connections>
+                                    <action selector="restartButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0ZT-A8-sDr"/>
+                                    <segue destination="T3I-8M-WGW" kind="show" id="ped-0P-QK9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="WmH-Ce-x4m" firstAttribute="top" secondItem="LYG-3D-cJV" secondAttribute="bottom" constant="22" id="3YQ-z8-Azq"/>
                             <constraint firstItem="FlK-xv-cci" firstAttribute="top" secondItem="LYG-3D-cJV" secondAttribute="bottom" constant="22" id="7Cg-Od-ODs"/>
                             <constraint firstItem="5M8-Sh-pRf" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="AYe-Ek-i4a"/>
-                            <constraint firstItem="FlK-xv-cci" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Frx-qz-lKB"/>
                             <constraint firstItem="LYG-3D-cJV" firstAttribute="top" secondItem="5M8-Sh-pRf" secondAttribute="bottom" constant="8" id="GaF-PX-RbP"/>
+                            <constraint firstItem="FlK-xv-cci" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Naz-oP-a7g"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FlK-xv-cci" secondAttribute="bottom" constant="20" id="XVv-6S-n3b"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LSW-na-Of7" secondAttribute="trailing" constant="44" id="att-TZ-kx7"/>
                             <constraint firstItem="lyE-7i-9c4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="44" id="eA7-42-PYI"/>
                             <constraint firstItem="5M8-Sh-pRf" firstAttribute="top" secondItem="lyE-7i-9c4" secondAttribute="bottom" constant="20" id="gzs-I8-cAh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WmH-Ce-x4m" secondAttribute="trailing" constant="25" id="hTX-61-rXq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LYG-3D-cJV" secondAttribute="trailing" id="l3w-q7-ZAq"/>
                             <constraint firstItem="lyE-7i-9c4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="44" id="nrD-pT-cfQ"/>
+                            <constraint firstItem="WmH-Ce-x4m" firstAttribute="leading" secondItem="FlK-xv-cci" secondAttribute="trailing" constant="25" id="pnu-Xl-tcY"/>
                             <constraint firstItem="LSW-na-Of7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="44" id="tji-xt-eHD"/>
                             <constraint firstItem="LYG-3D-cJV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tod-Ts-l8E"/>
                             <constraint firstItem="LSW-na-Of7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lyE-7i-9c4" secondAttribute="trailing" constant="8" symbolic="YES" id="zzk-Xb-alW"/>

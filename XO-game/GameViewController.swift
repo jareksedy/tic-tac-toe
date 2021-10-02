@@ -75,14 +75,17 @@ class GameViewController: UIViewController {
         if checkForGameOver() { return }
         
         if player == .computer {
+            delay(0.5) { [self] in
             currentState = ComputerMove(player: player!,
                                         gameViewController: self,
                                         gameBoard: gameBoard,
                                         gameBoardView: gameboardView,
                                         markViewPrototype: player!.markViewPrototype)
-            setFirstState()
-            _ = checkForGameOver()
-            return
+                counter += 1
+                setFirstState()
+                _ = checkForGameOver()
+                return
+            }
         }
         
         if playerInputState != nil {
@@ -96,6 +99,7 @@ class GameViewController: UIViewController {
     
     private func configureUI() {
         if Session.shared.mode == .againstComputer {
+            firstPlayerTurnLabel.text = "Human"
             secondPlayerTurnLabel.text = "Computer"
         }
     }
@@ -110,3 +114,7 @@ class GameViewController: UIViewController {
     }
 }
 
+func delay(_ delay: Double, closure: @escaping ()->()) {
+    let when = DispatchTime.now() + delay
+    DispatchQueue.main.asyncAfter(deadline: when, execute: closure)
+}

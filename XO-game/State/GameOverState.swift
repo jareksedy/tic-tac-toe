@@ -25,7 +25,7 @@ class GameOverState: GameState {
         if let winner = winner {
             gameViewController?.winnerLabel.text = getWinner(from: winner) + " won"
         } else {
-            gameViewController?.winnerLabel.text = "No winner"
+            gameViewController?.winnerLabel.text = "It's a draw!"
         }
         
         gameViewController?.firstPlayerTurnLabel.isHidden = true
@@ -38,7 +38,7 @@ class GameOverState: GameState {
     private func getWinner(from: Player) -> String {
         switch winner {
         case .first:
-            return "1st player"
+            return Session.shared.mode == .againstComputer ? "Human" : "1st player"
         case .second:
             return "2nd player"
         case .computer:
