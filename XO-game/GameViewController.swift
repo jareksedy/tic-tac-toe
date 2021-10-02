@@ -52,18 +52,19 @@ class GameViewController: UIViewController {
                                        markViewPrototype: player.markViewPrototype)
     }
     
-    private func checkForGameOver() {
+    private func checkForGameOver() -> Bool {
         if let winner = referee.determineWinner() {
             Log(action: .gameFinished(winner: winner))
             currentState = GameOverState(winner: winner, gameViewController: self)
-            return
+            return true
         }
         
         if counter >= 9 {
             Log(action: .gameFinished(winner: nil))
             currentState = GameOverState(winner: nil, gameViewController: self)
-            return
+            return true
         }
+        return false
     }
     
     private func setNextState() {
@@ -71,7 +72,7 @@ class GameViewController: UIViewController {
         let playerInputState = currentState as? PlayerState
         let player = playerInputState?.player.next
         
-        checkForGameOver()
+        if checkForGameOver() { return }
         
         if player == .computer {
             currentState = ComputerMove(player: player!,
@@ -80,7 +81,7 @@ class GameViewController: UIViewController {
                                         gameBoardView: gameboardView,
                                         markViewPrototype: player!.markViewPrototype)
             setFirstState()
-            checkForGameOver()
+            _ = checkForGameOver()
             return
         }
         
