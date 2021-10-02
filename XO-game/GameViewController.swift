@@ -35,6 +35,7 @@ class GameViewController: UIViewController {
             guard let self = self else { return }
             
             self.currentState.addMark(at: position)
+            
             if self.currentState.isMoveCompleted {
                 self.counter += 1
                 self.setNextState()
@@ -44,27 +45,17 @@ class GameViewController: UIViewController {
     
     private func setFirstState() {
         let player = Player.first
-        
-        if Session.shared.mode == .againstComputer {
-            currentState = PlayAgainstComputerState(player: player,
-                                                    gameViewController: self,
-                                                    gameBoard: gameBoard,
-                                                    gameBoardView: gameboardView,
-                                                    markViewPrototype: player.markViewPrototype)
-        } else {
             currentState = PlayerState(player: player,
                                        gameViewController: self,
                                        gameBoard: gameBoard,
                                        gameBoardView: gameboardView,
                                        markViewPrototype: player.markViewPrototype)
-        }
     }
     
-    private func setNextState() {
+    private func checkForGameOver() {
         if let winner = referee.determineWinner() {
             Log(action: .gameFinished(winner: winner))
             currentState = GameOverState(winner: winner, gameViewController: self)
-            
             return
         }
         
@@ -73,25 +64,32 @@ class GameViewController: UIViewController {
             currentState = GameOverState(winner: nil, gameViewController: self)
             return
         }
+    }
+    
+    private func setNextState() {
         
-        if Session.shared.mode == .againstComputer {
-            if let playerInputState = currentState as? PlayAgainstComputerState {
-                let player = playerInputState.player.next
-                currentState = PlayAgainstComputerState(player: player,
-                                                        gameViewController: self,
-                                                        gameBoard: gameBoard,
-                                                        gameBoardView: gameboardView,
-                                                        markViewPrototype: player.markViewPrototype)
-            }
-        } else {
-            if let playerInputState = currentState as? PlayerState {
-                let player = playerInputState.player.next
-                currentState = PlayerState(player: player,
-                                           gameViewController: self,
-                                           gameBoard: gameBoard,
-                                           gameBoardView: gameboardView,
-                                           markViewPrototype: player.markViewPrototype)
-            }
+        let playerInputState = currentState as? PlayerState
+        let player = playerInputState?.player.next
+        
+        checkForGameOver()
+        
+        if player == .computer {
+            currentState = ComputerMove(player: player!,
+                                        gameViewController: self,
+                                        gameBoard: gameBoard,
+                                        gameBoardView: gameboardView,
+                                        markViewPrototype: player!.markViewPrototype)
+            setFirstState()
+            checkForGameOver()
+            return
+        }
+        
+        if playerInputState != nil {
+            currentState = PlayerState(player: player!,
+                                       gameViewController: self,
+                                       gameBoard: gameBoard,
+                                       gameBoardView: gameboardView,
+                                       markViewPrototype: player!.markViewPrototype)
         }
     }
     

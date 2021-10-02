@@ -1,12 +1,14 @@
 //
-//  PlayerState.swift
+//  ComputerMove.swift
 //  XO-game
 //
-//  Created by Ярослав on 27.09.2021.
+//  Created by Ярослав on 02.10.2021.
 //  Copyright © 2021 plasmon. All rights reserved.
 //
 
-class PlayAgainstComputerState: GameState {
+import Foundation
+
+class ComputerMove: GameState {
     public let player: Player
     var isMoveCompleted: Bool = false
     private weak var gameViewController: GameViewController?
@@ -25,13 +27,12 @@ class PlayAgainstComputerState: GameState {
     }
 
     func begin() {
-        switch player {
-        case .first:
-            gameViewController?.firstPlayerTurnLabel.isHidden = false
-            gameViewController?.secondPlayerTurnLabel.isHidden = true
-        case .second, .computer:
-            gameViewController?.firstPlayerTurnLabel.isHidden = true
-            gameViewController?.secondPlayerTurnLabel.isHidden = false
+        
+        gameViewController?.firstPlayerTurnLabel.isHidden = true
+        gameViewController?.secondPlayerTurnLabel.isHidden = false
+        
+        if let position = calculatePosition() {
+            addMark(at: position)
         }
 
         gameViewController?.winnerLabel.isHidden = true
@@ -49,6 +50,18 @@ class PlayAgainstComputerState: GameState {
         gameBoardView.placeMarkView(markViewPrototype.copy(), at: position)
         isMoveCompleted = true
     }
-
-
+    
+    private func calculatePosition() -> GameboardPosition? {
+        var positions: [GameboardPosition] = []
+        for col in 0...GameboardSize.columns - 1 {
+            for row in 0...GameboardSize.rows - 1 {
+                let position = GameboardPosition(column: col, row: row)
+                if !gameBoard!.contains(player: .first, at: position) && !gameBoard!.contains(player: .computer, at: position) {
+                    positions.append(position)
+                }
+            }
+        }
+        
+        return positions.randomElement()
+    }
 }

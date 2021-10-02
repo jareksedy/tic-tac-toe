@@ -16,8 +16,8 @@
 		BA6B3392270249C000B4DA7C /* LogAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6B3391270249C000B4DA7C /* LogAction.swift */; };
 		BA6B339427024AAE00B4DA7C /* LogInvoker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6B339327024AAE00B4DA7C /* LogInvoker.swift */; };
 		BA6B339627024B7500B4DA7C /* LogFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6B339527024B7500B4DA7C /* LogFunc.swift */; };
+		CA98D384270860EE009B8B30 /* ComputerMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA98D383270860EE009B8B30 /* ComputerMove.swift */; };
 		CAB77EAC2707FDDC00B12DBA /* MenuScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB77EAB2707FDDC00B12DBA /* MenuScreenViewController.swift */; };
-		CAB77EAE2708177300B12DBA /* PlayAgainstComputerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB77EAD2708177300B12DBA /* PlayAgainstComputerState.swift */; };
 		CAB77EB027081FF400B12DBA /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB77EAF27081FF400B12DBA /* Session.swift */; };
 		F874E4712224621100364CAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F874E4702224621100364CAE /* AppDelegate.swift */; };
 		F874E4732224621100364CAE /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F874E4722224621100364CAE /* GameViewController.swift */; };
@@ -45,8 +45,8 @@
 		BA6B3391270249C000B4DA7C /* LogAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogAction.swift; sourceTree = "<group>"; };
 		BA6B339327024AAE00B4DA7C /* LogInvoker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInvoker.swift; sourceTree = "<group>"; };
 		BA6B339527024B7500B4DA7C /* LogFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogFunc.swift; sourceTree = "<group>"; };
+		CA98D383270860EE009B8B30 /* ComputerMove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerMove.swift; sourceTree = "<group>"; };
 		CAB77EAB2707FDDC00B12DBA /* MenuScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScreenViewController.swift; sourceTree = "<group>"; };
-		CAB77EAD2708177300B12DBA /* PlayAgainstComputerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAgainstComputerState.swift; sourceTree = "<group>"; };
 		CAB77EAF27081FF400B12DBA /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		F874E46D2224621100364CAE /* XO-game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "XO-game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F874E4702224621100364CAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,7 +83,7 @@
 				BA6B33832702349400B4DA7C /* GameState.swift */,
 				BA6B33852702351400B4DA7C /* GameOverState.swift */,
 				BA6B33872702369900B4DA7C /* PlayerState.swift */,
-				CAB77EAD2708177300B12DBA /* PlayAgainstComputerState.swift */,
+				CA98D383270860EE009B8B30 /* ComputerMove.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -265,7 +265,6 @@
 				BA6B33862702351400B4DA7C /* GameOverState.swift in Sources */,
 				F874E4712224621100364CAE /* AppDelegate.swift in Sources */,
 				BA6B338B2702443100B4DA7C /* Copying.swift in Sources */,
-				CAB77EAE2708177300B12DBA /* PlayAgainstComputerState.swift in Sources */,
 				BA6B339627024B7500B4DA7C /* LogFunc.swift in Sources */,
 				F874E4E22225CABF00364CAE /* OView.swift in Sources */,
 				F874E4F32225E0B100364CAE /* GameboardSize.swift in Sources */,
@@ -274,6 +273,7 @@
 				BA6B3390270249A800B4DA7C /* LogCommand.swift in Sources */,
 				BA6B33882702369900B4DA7C /* PlayerState.swift in Sources */,
 				BA6B33842702349400B4DA7C /* GameState.swift in Sources */,
+				CA98D384270860EE009B8B30 /* ComputerMove.swift in Sources */,
 				CAB77EB027081FF400B12DBA /* Session.swift in Sources */,
 				F874E4DB2225C1AC00364CAE /* GameboardView.swift in Sources */,
 				F874E4EF2225DE4500364CAE /* Player.swift in Sources */,
