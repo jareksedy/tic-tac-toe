@@ -22,44 +22,46 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQk-eA-Ihe">
-                                <rect key="frame" x="50" y="71" width="275" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W6i-7j-it5">
+                                <rect key="frame" x="50" y="71" width="275" height="26"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="2 Player Mode"/>
+                                <inset key="contentEdgeInsets" minX="12" minY="4" maxX="12" maxY="4"/>
+                                <state key="normal" title="2 PLAYER MODE"/>
                                 <connections>
-                                    <action selector="twoPlayerButtonTap:" destination="T3I-8M-WGW" eventType="touchUpInside" id="7O5-5y-Oga"/>
+                                    <action selector="restartButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y1y-z7-PrG"/>
+                                    <action selector="twoPlayerButtonTap:" destination="T3I-8M-WGW" eventType="touchUpInside" id="eD8-iN-bN1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AlE-1E-VUB">
-                                <rect key="frame" x="50" y="112" width="275" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MxF-ND-y6h">
+                                <rect key="frame" x="50" y="107" width="275" height="26"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Play Against Computer"/>
+                                <inset key="contentEdgeInsets" minX="12" minY="4" maxX="12" maxY="4"/>
+                                <state key="normal" title="PLAY AGAINST COMPUTER"/>
                                 <connections>
-                                    <action selector="computerButtonTap:" destination="T3I-8M-WGW" eventType="touchUpInside" id="BUo-0e-DsX"/>
+                                    <action selector="computerButtonTap:" destination="T3I-8M-WGW" eventType="touchUpInside" id="97h-yx-1sa"/>
+                                    <action selector="restartButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DOp-K8-bqh"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oQR-gQ-pS8"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="oQR-gQ-pS8" firstAttribute="trailing" secondItem="AlE-1E-VUB" secondAttribute="trailing" constant="50" id="95y-7J-Ln8"/>
-                            <constraint firstItem="AlE-1E-VUB" firstAttribute="leading" secondItem="oQR-gQ-pS8" secondAttribute="leading" constant="50" id="C2s-ML-5Ue"/>
-                            <constraint firstItem="oQR-gQ-pS8" firstAttribute="trailing" secondItem="MQk-eA-Ihe" secondAttribute="trailing" constant="50" id="NIg-KJ-wgw"/>
-                            <constraint firstItem="MQk-eA-Ihe" firstAttribute="leading" secondItem="oQR-gQ-pS8" secondAttribute="leading" constant="50" id="QkE-kI-2gy"/>
+                            <constraint firstItem="MxF-ND-y6h" firstAttribute="leading" secondItem="oQR-gQ-pS8" secondAttribute="leading" constant="50" id="Bue-rp-hnW"/>
+                            <constraint firstItem="W6i-7j-it5" firstAttribute="leading" secondItem="oQR-gQ-pS8" secondAttribute="leading" constant="50" id="DQo-Mg-m2C"/>
                             <constraint firstItem="977-BO-jDi" firstAttribute="leading" secondItem="oQR-gQ-pS8" secondAttribute="leading" constant="25" id="R3H-Kh-zzf"/>
-                            <constraint firstItem="AlE-1E-VUB" firstAttribute="top" secondItem="MQk-eA-Ihe" secondAttribute="bottom" constant="10" id="RRY-rf-aLG"/>
-                            <constraint firstItem="MQk-eA-Ihe" firstAttribute="top" secondItem="977-BO-jDi" secondAttribute="bottom" constant="25" id="cyF-c2-E4Y"/>
+                            <constraint firstItem="W6i-7j-it5" firstAttribute="top" secondItem="977-BO-jDi" secondAttribute="bottom" constant="25" id="Yih-oS-RID"/>
+                            <constraint firstItem="oQR-gQ-pS8" firstAttribute="trailing" secondItem="W6i-7j-it5" secondAttribute="trailing" constant="50" id="aO2-sA-9mc"/>
                             <constraint firstItem="977-BO-jDi" firstAttribute="top" secondItem="oQR-gQ-pS8" secondAttribute="top" constant="25" id="di4-61-iCC"/>
+                            <constraint firstItem="MxF-ND-y6h" firstAttribute="top" secondItem="W6i-7j-it5" secondAttribute="bottom" constant="10" id="h1T-Iy-ATz"/>
+                            <constraint firstItem="oQR-gQ-pS8" firstAttribute="trailing" secondItem="MxF-ND-y6h" secondAttribute="trailing" constant="50" id="jp3-Au-O2i"/>
                             <constraint firstItem="oQR-gQ-pS8" firstAttribute="trailing" secondItem="977-BO-jDi" secondAttribute="trailing" constant="25" id="tuz-qq-kYY"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="computerButton" destination="AlE-1E-VUB" id="dzW-cZ-ISd"/>
-                        <outlet property="twoPlayerButton" destination="MQk-eA-Ihe" id="XHM-ZK-YiA"/>
+                        <outlet property="computerButton" destination="MxF-ND-y6h" id="1z7-AR-1Vc"/>
+                        <outlet property="twoPlayerButton" destination="W6i-7j-it5" id="x1B-zQ-qKg"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="toGame" id="4et-Nt-cFa"/>
                     </connections>
                 </viewController>

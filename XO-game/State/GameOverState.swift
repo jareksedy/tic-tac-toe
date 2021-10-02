@@ -41,6 +41,8 @@ class GameOverState: GameState {
             return "1st player"
         case .second:
             return "2nd player"
+        case .computer:
+            return "Computer"
         case .none:
             return "There is no winner"
         }

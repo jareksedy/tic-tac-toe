@@ -31,7 +31,7 @@ class PlayerState: GameState {
         case .first:
             gameViewController?.firstPlayerTurnLabel.isHidden = false
             gameViewController?.secondPlayerTurnLabel.isHidden = true
-        case .second:
+        case .second, .computer:
             gameViewController?.firstPlayerTurnLabel.isHidden = true
             gameViewController?.secondPlayerTurnLabel.isHidden = false
         }

@@ -30,6 +30,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureUI()
         setFirstState()
         
         gameboardView.onSelectPosition = { [weak self] position in
@@ -74,6 +75,12 @@ class GameViewController: UIViewController {
                                        gameViewController: self,
                                        gameBoard: gameBoard,
                                        gameBoardView: gameboardView, markViewPrototype: player.markViewPrototype)
+        }
+    }
+    
+    private func configureUI() {
+        if mode == .againstComputer {
+            secondPlayerTurnLabel.text = "Computer"
         }
     }
     
