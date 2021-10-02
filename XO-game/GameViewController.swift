@@ -9,14 +9,12 @@
 import UIKit
 
 class GameViewController: UIViewController {
-
+    
     @IBOutlet var gameboardView: GameboardView!
     @IBOutlet var firstPlayerTurnLabel: UILabel!
     @IBOutlet var secondPlayerTurnLabel: UILabel!
     @IBOutlet var winnerLabel: UILabel!
     @IBOutlet var restartButton: UIButton!
-    
-    var mode: gameMode?
     
     private let gameBoard = Gameboard()
     private var counter = 0
@@ -41,18 +39,25 @@ class GameViewController: UIViewController {
                 self.counter += 1
                 self.setNextState()
             }
-            
-//            self.gameboardView.placeMarkView(XView(), at: position)
         }
     }
     
     private func setFirstState() {
         let player = Player.first
-        currentState = PlayerState(player: player,
-                                   gameViewController: self,
-                                   gameBoard: gameBoard,
-                                   gameBoardView: gameboardView,
-                                   markViewPrototype: player.markViewPrototype)
+        
+        if Session.shared.mode == .againstComputer {
+            currentState = PlayAgainstComputerState(player: player,
+                                                    gameViewController: self,
+                                                    gameBoard: gameBoard,
+                                                    gameBoardView: gameboardView,
+                                                    markViewPrototype: player.markViewPrototype)
+        } else {
+            currentState = PlayerState(player: player,
+                                       gameViewController: self,
+                                       gameBoard: gameBoard,
+                                       gameBoardView: gameboardView,
+                                       markViewPrototype: player.markViewPrototype)
+        }
     }
     
     private func setNextState() {
@@ -69,17 +74,29 @@ class GameViewController: UIViewController {
             return
         }
         
-        if let playerInputState = currentState as? PlayerState {
-            let player = playerInputState.player.next
-            currentState = PlayerState(player: player,
-                                       gameViewController: self,
-                                       gameBoard: gameBoard,
-                                       gameBoardView: gameboardView, markViewPrototype: player.markViewPrototype)
+        if Session.shared.mode == .againstComputer {
+            if let playerInputState = currentState as? PlayAgainstComputerState {
+                let player = playerInputState.player.next
+                currentState = PlayAgainstComputerState(player: player,
+                                                        gameViewController: self,
+                                                        gameBoard: gameBoard,
+                                                        gameBoardView: gameboardView,
+                                                        markViewPrototype: player.markViewPrototype)
+            }
+        } else {
+            if let playerInputState = currentState as? PlayerState {
+                let player = playerInputState.player.next
+                currentState = PlayerState(player: player,
+                                           gameViewController: self,
+                                           gameBoard: gameBoard,
+                                           gameBoardView: gameboardView,
+                                           markViewPrototype: player.markViewPrototype)
+            }
         }
     }
     
     private func configureUI() {
-        if mode == .againstComputer {
+        if Session.shared.mode == .againstComputer {
             secondPlayerTurnLabel.text = "Computer"
         }
     }

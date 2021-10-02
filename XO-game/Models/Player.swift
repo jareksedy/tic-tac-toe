@@ -15,9 +15,9 @@ public enum Player: CaseIterable {
     
     var next: Player {
         switch self {
-        case .first: return .second
+        case .first: return Session.shared.mode == .againstComputer ? .computer : .second
         case .second: return .first
-        case .computer: return .computer
+        case .computer: return .first
         }
     }
     

@@ -17,6 +17,8 @@
 		BA6B339427024AAE00B4DA7C /* LogInvoker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6B339327024AAE00B4DA7C /* LogInvoker.swift */; };
 		BA6B339627024B7500B4DA7C /* LogFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6B339527024B7500B4DA7C /* LogFunc.swift */; };
 		CAB77EAC2707FDDC00B12DBA /* MenuScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB77EAB2707FDDC00B12DBA /* MenuScreenViewController.swift */; };
+		CAB77EAE2708177300B12DBA /* PlayAgainstComputerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB77EAD2708177300B12DBA /* PlayAgainstComputerState.swift */; };
+		CAB77EB027081FF400B12DBA /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB77EAF27081FF400B12DBA /* Session.swift */; };
 		F874E4712224621100364CAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F874E4702224621100364CAE /* AppDelegate.swift */; };
 		F874E4732224621100364CAE /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F874E4722224621100364CAE /* GameViewController.swift */; };
 		F874E4762224621100364CAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F874E4742224621100364CAE /* Main.storyboard */; };
@@ -44,6 +46,8 @@
 		BA6B339327024AAE00B4DA7C /* LogInvoker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInvoker.swift; sourceTree = "<group>"; };
 		BA6B339527024B7500B4DA7C /* LogFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogFunc.swift; sourceTree = "<group>"; };
 		CAB77EAB2707FDDC00B12DBA /* MenuScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScreenViewController.swift; sourceTree = "<group>"; };
+		CAB77EAD2708177300B12DBA /* PlayAgainstComputerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAgainstComputerState.swift; sourceTree = "<group>"; };
+		CAB77EAF27081FF400B12DBA /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		F874E46D2224621100364CAE /* XO-game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "XO-game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F874E4702224621100364CAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F874E4722224621100364CAE /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +83,7 @@
 				BA6B33832702349400B4DA7C /* GameState.swift */,
 				BA6B33852702351400B4DA7C /* GameOverState.swift */,
 				BA6B33872702369900B4DA7C /* PlayerState.swift */,
+				CAB77EAD2708177300B12DBA /* PlayAgainstComputerState.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -103,6 +108,14 @@
 			path = CommandPattern;
 			sourceTree = "<group>";
 		};
+		CAB77EB127081FFF00B12DBA /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				CAB77EAF27081FF400B12DBA /* Session.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		F874E4642224621100364CAE = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +135,7 @@
 		F874E46F2224621100364CAE /* XO-game */ = {
 			isa = PBXGroup;
 			children = (
+				CAB77EB127081FFF00B12DBA /* Shared */,
 				BA6B338C2702493A00B4DA7C /* CommandPattern */,
 				BA6B33892702442000B4DA7C /* Prototype */,
 				BA6B33822702347C00B4DA7C /* State */,
@@ -251,6 +265,7 @@
 				BA6B33862702351400B4DA7C /* GameOverState.swift in Sources */,
 				F874E4712224621100364CAE /* AppDelegate.swift in Sources */,
 				BA6B338B2702443100B4DA7C /* Copying.swift in Sources */,
+				CAB77EAE2708177300B12DBA /* PlayAgainstComputerState.swift in Sources */,
 				BA6B339627024B7500B4DA7C /* LogFunc.swift in Sources */,
 				F874E4E22225CABF00364CAE /* OView.swift in Sources */,
 				F874E4F32225E0B100364CAE /* GameboardSize.swift in Sources */,
@@ -259,6 +274,7 @@
 				BA6B3390270249A800B4DA7C /* LogCommand.swift in Sources */,
 				BA6B33882702369900B4DA7C /* PlayerState.swift in Sources */,
 				BA6B33842702349400B4DA7C /* GameState.swift in Sources */,
+				CAB77EB027081FF400B12DBA /* Session.swift in Sources */,
 				F874E4DB2225C1AC00364CAE /* GameboardView.swift in Sources */,
 				F874E4EF2225DE4500364CAE /* Player.swift in Sources */,
 				CAB77EAC2707FDDC00B12DBA /* MenuScreenViewController.swift in Sources */,

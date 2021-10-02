@@ -2,13 +2,11 @@
 //  PlayerState.swift
 //  XO-game
 //
-//  Created by Veaceslav Chirita on 27.09.2021.
+//  Created by Ярослав on 27.09.2021.
 //  Copyright © 2021 plasmon. All rights reserved.
 //
 
-import UIKit
-
-class PlayerState: GameState {
+class PlayAgainstComputerState: GameState {
     public let player: Player
     var isMoveCompleted: Bool = false
     private weak var gameViewController: GameViewController?
