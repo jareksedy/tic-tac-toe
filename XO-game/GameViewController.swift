@@ -16,6 +16,8 @@ class GameViewController: UIViewController {
     @IBOutlet var winnerLabel: UILabel!
     @IBOutlet var restartButton: UIButton!
     
+    let mode = Session.shared.mode
+    
     private let gameBoard = Gameboard()
     private var counter = 0
     private lazy var referee = Referee(gameboard: gameBoard)
@@ -45,7 +47,7 @@ class GameViewController: UIViewController {
     
     private func setFirstState() {
         let player = Player.first
-        if Session.shared.mode == .fiveByFive {
+        if mode == .fiveByFive {
             currentState = FiveByFiveState(player: player,
                                            gameViewController: self,
                                            gameBoard: gameBoard,
@@ -80,7 +82,9 @@ class GameViewController: UIViewController {
         let playerInputState = currentState as? PlayerState
         let player = playerInputState?.player.next
         
-        if checkForGameOver() { return }
+        if mode != .fiveByFive && checkForGameOver() {
+            return
+        }
         
         if player == .computer {
             delay(0.5) { [self] in
@@ -96,7 +100,7 @@ class GameViewController: UIViewController {
             }
         }
         
-        if Session.shared.mode == .fiveByFive, let playerInputState = currentState as? FiveByFiveState {
+        if mode == .fiveByFive, let playerInputState = currentState as? FiveByFiveState {
             let player = playerInputState.player.next
             currentState = FiveByFiveState(player: player,
                                            gameViewController: self,
@@ -114,7 +118,7 @@ class GameViewController: UIViewController {
     }
     
     private func configureUI() {
-        if Session.shared.mode == .againstComputer {
+        if mode == .againstComputer {
             firstPlayerTurnLabel.text = "Human"
             secondPlayerTurnLabel.text = "Computer"
         }
