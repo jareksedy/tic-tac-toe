@@ -98,7 +98,19 @@ class GameViewController: UIViewController {
         if mode == .fiveByFive && checkForGameCompleted() {
             currentState = GameExecuteState(gameViewController: self,
                                             gameBoard: gameBoard,
-                                            gameBoardView: gameboardView)
+                                            gameBoardView: gameboardView) { [self] in
+                
+                if let winner = referee.determineWinner() {
+                    Log(action: .gameFinished(winner: winner))
+                    currentState = GameOverState(winner: winner, gameViewController: self)
+                } else {
+                    Log(action: .gameFinished(winner: nil))
+                    currentState = GameOverState(winner: nil, gameViewController: self)
+                }
+            }
+            
+ 
+            
             return
         }
         

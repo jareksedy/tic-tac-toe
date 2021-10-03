@@ -15,11 +15,13 @@ class GameExecuteState: GameState {
     private weak var gameBoardView: GameboardView?
     private var player: Player = .first
     private var timer: Timer?
+    var completionHandler: () -> Void
     
-    init(gameViewController: GameViewController, gameBoard: Gameboard, gameBoardView: GameboardView) {
+    init(gameViewController: GameViewController, gameBoard: Gameboard, gameBoardView: GameboardView, _ completionHandler: @escaping () -> Void) {
         self.gameViewController = gameViewController
         self.gameBoard = gameBoard
         self.gameBoardView = gameBoardView
+        self.completionHandler = completionHandler
     }
     
     @objc func performMove() {
@@ -44,6 +46,7 @@ class GameExecuteState: GameState {
             
         } else {
             timer?.invalidate()
+            completionHandler()
         }
     }
     
