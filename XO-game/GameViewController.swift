@@ -89,11 +89,19 @@ class GameViewController: UIViewController {
         }
         
         if playerInputState != nil {
-            currentState = PlayerState(player: player!,
-                                       gameViewController: self,
-                                       gameBoard: gameBoard,
-                                       gameBoardView: gameboardView,
-                                       markViewPrototype: player!.markViewPrototype)
+            if Session.shared.mode == .fiveByFive {
+                currentState = FiveByFiveState(player: player!,
+                                           gameViewController: self,
+                                           gameBoard: gameBoard,
+                                           gameBoardView: gameboardView,
+                                           markViewPrototype: player!.markViewPrototype)
+            } else {
+                currentState = PlayerState(player: player!,
+                                           gameViewController: self,
+                                           gameBoard: gameBoard,
+                                           gameBoardView: gameboardView,
+                                           markViewPrototype: player!.markViewPrototype)
+            }
         }
     }
     

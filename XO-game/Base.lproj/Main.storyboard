@@ -51,7 +51,6 @@
                                 <inset key="contentEdgeInsets" minX="12" minY="4" maxX="12" maxY="4"/>
                                 <state key="normal" title="FIVE BY FIVE MODE"/>
                                 <connections>
-                                    <action selector="computerButtonTap:" destination="T3I-8M-WGW" eventType="touchUpInside" id="0Ks-4Q-O7f"/>
                                     <action selector="fiveByFiveButtonTap:" destination="T3I-8M-WGW" eventType="touchUpInside" id="3C4-pA-9ED"/>
                                     <action selector="restartButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ee6-sh-Uu7"/>
                                 </connections>
