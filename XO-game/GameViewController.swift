@@ -45,11 +45,19 @@ class GameViewController: UIViewController {
     
     private func setFirstState() {
         let player = Player.first
+        if Session.shared.mode == .fiveByFive {
+            currentState = FiveByFiveState(player: player,
+                                           gameViewController: self,
+                                           gameBoard: gameBoard,
+                                           gameBoardView: gameboardView,
+                                           markViewPrototype: player.markViewPrototype)
+        } else {
             currentState = PlayerState(player: player,
                                        gameViewController: self,
                                        gameBoard: gameBoard,
                                        gameBoardView: gameboardView,
                                        markViewPrototype: player.markViewPrototype)
+        }
     }
     
     private func checkForGameOver() -> Bool {
@@ -76,11 +84,11 @@ class GameViewController: UIViewController {
         
         if player == .computer {
             delay(0.5) { [self] in
-            currentState = ComputerMove(player: player!,
-                                        gameViewController: self,
-                                        gameBoard: gameBoard,
-                                        gameBoardView: gameboardView,
-                                        markViewPrototype: player!.markViewPrototype)
+                currentState = ComputerMove(player: player!,
+                                            gameViewController: self,
+                                            gameBoard: gameBoard,
+                                            gameBoardView: gameboardView,
+                                            markViewPrototype: player!.markViewPrototype)
                 counter += 1
                 setFirstState()
                 _ = checkForGameOver()
@@ -88,20 +96,20 @@ class GameViewController: UIViewController {
             }
         }
         
-        if playerInputState != nil {
-            if Session.shared.mode == .fiveByFive {
-                currentState = FiveByFiveState(player: player!,
+        if Session.shared.mode == .fiveByFive, let playerInputState = currentState as? FiveByFiveState {
+            let player = playerInputState.player.next
+            currentState = FiveByFiveState(player: player,
                                            gameViewController: self,
                                            gameBoard: gameBoard,
                                            gameBoardView: gameboardView,
-                                           markViewPrototype: player!.markViewPrototype)
-            } else {
-                currentState = PlayerState(player: player!,
-                                           gameViewController: self,
-                                           gameBoard: gameBoard,
-                                           gameBoardView: gameboardView,
-                                           markViewPrototype: player!.markViewPrototype)
-            }
+                                           markViewPrototype: player.markViewPrototype)
+        } else if let playerInputState = currentState as? PlayerState {
+            let player = playerInputState.player.next
+            currentState = PlayerState(player: player,
+                                       gameViewController: self,
+                                       gameBoard: gameBoard,
+                                       gameBoardView: gameboardView,
+                                       markViewPrototype: player.markViewPrototype)
         }
     }
     

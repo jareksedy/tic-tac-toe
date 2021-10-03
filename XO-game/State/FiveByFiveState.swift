@@ -51,6 +51,4 @@ class FiveByFiveState: GameState {
         gameBoardView.placeMarkView(markViewPrototype.copy(), at: position)
         isMoveCompleted = true
     }
-
-
 }
