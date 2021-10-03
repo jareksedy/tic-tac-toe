@@ -22,9 +22,10 @@ class MenuScreenViewController: UIViewController {
         Session.shared.mode = .againstComputer
         performSegue(withIdentifier: "toGame", sender: self)
     }
+    
     @IBAction func fiveByFiveButtonTap(_ sender: Any) {
-        print("hello")
-        return
+        Session.shared.mode = .fiveByFive
+        performSegue(withIdentifier: "toGame", sender: self)
     }
 }
 
