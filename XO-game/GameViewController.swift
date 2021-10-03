@@ -109,8 +109,6 @@ class GameViewController: UIViewController {
                 }
             }
             
- 
-            
             return
         }
         
