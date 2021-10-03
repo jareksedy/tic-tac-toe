@@ -14,4 +14,7 @@ final class Session {
     private init() {}
     
     var mode: gameMode?
+    
+    var playerFirstMoves: [PlayerMove] = []
+    var playerSecondMoves: [PlayerMove] = []
 }

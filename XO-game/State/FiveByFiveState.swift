@@ -14,6 +14,8 @@ class FiveByFiveState: GameState {
     private weak var gameViewController: GameViewController?
     private weak var gameBoard: Gameboard?
     private weak var gameBoardView: GameboardView?
+    
+    var counter = 0
 
     public let markViewPrototype: MarkView
 
@@ -49,6 +51,14 @@ class FiveByFiveState: GameState {
 
         gameBoard?.setPlayer(player, at: position)
         gameBoardView.placeMarkView(markViewPrototype.copy(), at: position)
-        isMoveCompleted = true
+        
+        if player == .first {
+            Session.shared.playerFirstMoves.append(PlayerMove(player: .first, position: position))
+        } else {
+            Session.shared.playerSecondMoves.append(PlayerMove(player: .second, position: position))
+        }
+        
+        counter += 1
+        if counter >= 5 { isMoveCompleted = true }
     }
 }

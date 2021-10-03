@@ -39,8 +39,16 @@ class GameViewController: UIViewController {
             self.currentState.addMark(at: position)
             
             if self.currentState.isMoveCompleted {
-                self.counter += 1
-                self.setNextState()
+                if self.mode == .fiveByFive {
+                    delay(0.5) {
+                        self.gameboardView.clear()
+                        self.gameBoard.clear()
+                        self.setNextState()
+                    }
+                } else {
+                    self.counter += 1
+                    self.setNextState()
+                }
             }
         }
     }
@@ -62,6 +70,10 @@ class GameViewController: UIViewController {
         }
     }
     
+    private func checkForGameCompleted() -> Bool {
+        return Session.shared.playerFirstMoves.count > 0 && Session.shared.playerSecondMoves.count > 0
+    }
+    
     private func checkForGameOver() -> Bool {
         if let winner = referee.determineWinner() {
             Log(action: .gameFinished(winner: winner))
@@ -76,11 +88,19 @@ class GameViewController: UIViewController {
         }
         return false
     }
+
     
     private func setNextState() {
         
         let playerInputState = currentState as? PlayerState
         let player = playerInputState?.player.next
+        
+        if mode == .fiveByFive && checkForGameCompleted() {
+            currentState = GameExecuteState(gameViewController: self,
+                                            gameBoard: gameBoard,
+                                            gameBoardView: gameboardView)
+            return
+        }
         
         if mode != .fiveByFive && checkForGameOver() {
             return
@@ -130,6 +150,8 @@ class GameViewController: UIViewController {
         gameboardView.clear()
         gameBoard.clear()
         setFirstState()
+        Session.shared.playerFirstMoves = []
+        Session.shared.playerSecondMoves = []
         counter = 0
     }
 }
