@@ -44,24 +44,40 @@
                                     <action selector="restartButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DOp-K8-bqh"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W55-zV-Gad">
+                                <rect key="frame" x="50" y="143" width="275" height="26"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="contentEdgeInsets" minX="12" minY="4" maxX="12" maxY="4"/>
+                                <state key="normal" title="FIVE BY FIVE MODE"/>
+                                <connections>
+                                    <action selector="computerButtonTap:" destination="T3I-8M-WGW" eventType="touchUpInside" id="0Ks-4Q-O7f"/>
+                                    <action selector="fiveByFiveButtonTap:" destination="T3I-8M-WGW" eventType="touchUpInside" id="3C4-pA-9ED"/>
+                                    <action selector="restartButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ee6-sh-Uu7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oQR-gQ-pS8"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="MxF-ND-y6h" firstAttribute="leading" secondItem="oQR-gQ-pS8" secondAttribute="leading" constant="50" id="Bue-rp-hnW"/>
                             <constraint firstItem="W6i-7j-it5" firstAttribute="leading" secondItem="oQR-gQ-pS8" secondAttribute="leading" constant="50" id="DQo-Mg-m2C"/>
+                            <constraint firstItem="W55-zV-Gad" firstAttribute="top" secondItem="MxF-ND-y6h" secondAttribute="bottom" constant="10" id="K7B-Yt-A2m"/>
                             <constraint firstItem="977-BO-jDi" firstAttribute="leading" secondItem="oQR-gQ-pS8" secondAttribute="leading" constant="25" id="R3H-Kh-zzf"/>
+                            <constraint firstItem="oQR-gQ-pS8" firstAttribute="trailing" secondItem="W55-zV-Gad" secondAttribute="trailing" constant="50" id="Teg-Hj-76u"/>
                             <constraint firstItem="W6i-7j-it5" firstAttribute="top" secondItem="977-BO-jDi" secondAttribute="bottom" constant="25" id="Yih-oS-RID"/>
                             <constraint firstItem="oQR-gQ-pS8" firstAttribute="trailing" secondItem="W6i-7j-it5" secondAttribute="trailing" constant="50" id="aO2-sA-9mc"/>
                             <constraint firstItem="977-BO-jDi" firstAttribute="top" secondItem="oQR-gQ-pS8" secondAttribute="top" constant="25" id="di4-61-iCC"/>
                             <constraint firstItem="MxF-ND-y6h" firstAttribute="top" secondItem="W6i-7j-it5" secondAttribute="bottom" constant="10" id="h1T-Iy-ATz"/>
                             <constraint firstItem="oQR-gQ-pS8" firstAttribute="trailing" secondItem="MxF-ND-y6h" secondAttribute="trailing" constant="50" id="jp3-Au-O2i"/>
                             <constraint firstItem="oQR-gQ-pS8" firstAttribute="trailing" secondItem="977-BO-jDi" secondAttribute="trailing" constant="25" id="tuz-qq-kYY"/>
+                            <constraint firstItem="W55-zV-Gad" firstAttribute="leading" secondItem="oQR-gQ-pS8" secondAttribute="leading" constant="50" id="wDr-FK-3Pp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qmC-g1-6SM"/>
                     <connections>
                         <outlet property="computerButton" destination="MxF-ND-y6h" id="1z7-AR-1Vc"/>
+                        <outlet property="fiveByFiveButton" destination="W55-zV-Gad" id="coj-M7-Par"/>
                         <outlet property="twoPlayerButton" destination="W6i-7j-it5" id="x1B-zQ-qKg"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="toGame" id="4et-Nt-cFa"/>
                     </connections>

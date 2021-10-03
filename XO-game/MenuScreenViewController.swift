@@ -11,10 +11,7 @@ import UIKit
 class MenuScreenViewController: UIViewController {
     @IBOutlet weak var twoPlayerButton: UIButton!
     @IBOutlet weak var computerButton: UIButton!
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "toGame" else { return }
-    }
+    @IBOutlet weak var fiveByFiveButton: UIButton!
     
     @IBAction func twoPlayerButtonTap(_ sender: Any) {
         Session.shared.mode = .againstHuman
@@ -25,9 +22,14 @@ class MenuScreenViewController: UIViewController {
         Session.shared.mode = .againstComputer
         performSegue(withIdentifier: "toGame", sender: self)
     }
+    @IBAction func fiveByFiveButtonTap(_ sender: Any) {
+        print("hello")
+        return
+    }
 }
 
 enum gameMode {
     case againstHuman
     case againstComputer
+    case fiveByFive
 }
